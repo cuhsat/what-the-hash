@@ -1,6 +1,14 @@
-// Source: https://github.com/s0md3v/Bolt/blob/master/db/hashes.json
+// Package wth implements the what the hash reverse lookup.
 package wth
 
+import (
+	"regexp"
+	"strings"
+)
+
+// The internal database of the hash regex patterns.
+//
+// Source: https://github.com/s0md3v/Bolt/blob/master/db/hashes.json
 var DB = []struct {
 	Regex string
 	Algos []string
@@ -1002,4 +1010,21 @@ var DB = []struct {
 			"PDF 1.4 - 1.6 (Acrobat 5 - 8)",
 		},
 	},
+}
+
+// Search will write the found matches into the give channel.
+//
+// The given channel will be closed at the end of the operation.
+//
+// Search will not return anything.
+func Search(hash []byte, ch chan<- string) {
+	for _, e := range DB {
+		re := regexp.MustCompile(e.Regex)
+
+		if re.Match(hash) {
+			ch <- strings.Join(e.Algos, "\n")
+		}
+	}
+
+	close(ch)
 }
