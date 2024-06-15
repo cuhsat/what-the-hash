@@ -247,7 +247,7 @@ var DB = []struct {
 	{
 		Regex: "^[a-z0-9]{34}$",
 		Algos: []string{
-			"CryptoCurrency(Adress)",
+			"CryptoCurrency(Address)",
 		},
 	},
 	{
