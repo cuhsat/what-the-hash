@@ -20,7 +20,7 @@ func main() {
 		os.Exit(2)
 	}
 
-	hash := []byte(os.Args[1])
+	hash := []byte(strings.ToLower(os.Args[1]))
 
 	for _, e := range wth.DB {
 		re := regexp.MustCompile(e.Regex)
