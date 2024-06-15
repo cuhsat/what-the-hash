@@ -1,4 +1,4 @@
-[What the hash!?](assets/logo.png)
+![What the hash!?](assets/logo.png)
 
 Have you ever stumpled upon a hash and didn't know what for? Me too, buddy. So I created this simple program one Saturday evening, that we might wonder no more!
 
