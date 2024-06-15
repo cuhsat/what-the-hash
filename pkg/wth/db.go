@@ -1012,16 +1012,14 @@ var DB = []struct {
 	},
 }
 
-// Search will write the found matches into the give channel.
+// Search will write the found matches into the given channel.
 //
 // The given channel will be closed at the end of the operation.
-//
-// Search will not return anything.
-func Search(hash []byte, ch chan<- string) {
+func Search(b []byte, ch chan<- string) {
 	for _, e := range DB {
 		re := regexp.MustCompile(e.Regex)
 
-		if re.Match(hash) {
+		if re.Match(b) {
 			ch <- strings.Join(e.Algos, "\n")
 		}
 	}
