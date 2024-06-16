@@ -58,6 +58,10 @@ func TestSearch(t *testing.T) {
 			hash: "7b5n74kq8r441blc2c5qbbat19baj79r:.lvdsiqfj.net:33164473:1",
 		},
 		{
+			name: "SAM",
+			hash: "aad3b435b51404eeaad3b435b51404ee:b4b9b02e6f09a9bd760f388b67351e2b",
+		},
+		{
 			name: "NTLM",
 			hash: "b4b9b02e6f09a9bd760f388b67351e2b",
 		},
